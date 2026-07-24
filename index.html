@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IV Фестиваль Психодрамы в Бишкеке</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-purple: #a855f7;
+            --accent-pink: #ec4899;
+            --accent-blue: #38bdf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at center, #311042 0%, #0f172a 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #f59e0b, #ec4899);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin: 50px 0 30px;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--accent-purple);
+        }
+
+        /* Quick Nav Grid */
+        .grid-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .nav-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 18px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .nav-card .num {
+            font-size: 0.8rem;
+            color: var(--accent-pink);
+            font-weight: 700;
+        }
+
+        .nav-card h3 {
+            font-size: 1rem;
+            margin: 5px 0;
+            color: #fff;
+        }
+
+        .nav-card .speakers {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Workshops Detail */
+        .workshop-card {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent-purple);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            scroll-margin-top: 30px;
+        }
+
+        .workshop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .workshop-title {
+            font-size: 1.25rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .workshop-speakers {
+            background: rgba(236, 72, 153, 0.15);
+            color: var(--accent-pink);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .workshop-desc {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .photos-box {
+            display: flex;
+            gap: 15px;
+        }
+
+        .photo-placeholder {
+            width: 100px;
+            height: 100px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Event Info Banner */
+        .info-banner {
+            background: linear-gradient(135deg, #065f46, #047857);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 50px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .info-item .label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #a7f3d0;
+            letter-spacing: 1px;
+        }
+
+        .info-item .val {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 5px;
+        }
+
+        /* Registration */
+        .reg-box {
+            background: rgba(30, 41, 59, 0.9);
+            border: 2px dashed #f59e0b;
+            border-radius: 16px;
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .reg-box h2 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+
+        .qr-code {
+            width: 140px;
+            height: 140px;
+            background: #fff;
+            margin: 20px auto;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .phone {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            margin-top: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <div class="container">
+            <span class="badge">10 лет Кыргызской Ассоциации Психодрамы</span>
+            <h1>IV Фестиваль Психодрамы</h1>
+            <p>Приглашаем вас погрузиться в мир исследования себя, спонтанности и новых возможностей в Бишкеке!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Программа <span>Мастер-классов</span></h2>
+
+        <div class="grid-nav">
+            <a href="#mk1" class="nav-card">
+                <span class="num">МК #1</span>
+                <h3>Внутренняя опора</h3>
+                <span class="speakers">Айзада & Жазгуль</span>
+            </a>
+            <a href="#mk2" class="nav-card">
+                <span class="num">МК #2</span>
+                <h3>Страдаю, но остаюсь</h3>
+                <span class="speakers">Галина & Айканыш</span>
+            </a>
+            <a href="#mk3" class="nav-card">
+                <span class="num">МК #3</span>
+                <h3>Без обид</h3>
+                <span class="speakers">Ильдар & Жаныл</span>
+            </a>
+            <a href="#mk4" class="nav-card">
+                <span class="num">МК #4</span>
+                <h3>Где мои деньги ???</h3>
+                <span class="speakers">Зульфия & Айсулуу</span>
+            </a>
+            <a href="#mk5" class="nav-card">
+                <span class="num">МК #5</span>
+                <h3>Есть ТЕЛО - Есть дело!</h3>
+                <span class="speakers">Володя & Болот</span>
+            </a>
+            <a href="#mk6" class="nav-card">
+                <span class="num">МК #6</span>
+                <h3>Линия жизни</h3>
+                <span class="speakers">Наргиз & Альбина</span>
+            </a>
+            <a href="#mk7" class="nav-card">
+                <span class="num">МК #7</span>
+                <h3>Женщина, которой я запрещаю себе быть</h3>
+                <span class="speakers">Виктория</span>
+            </a>
+            <a href="#mk8" class="nav-card">
+                <span class="num">МК #8</span>
+                <h3>Телесный пульт</h3>
+                <span class="speakers">Асель & Любовь</span>
+            </a>
+            <a href="#mk9" class="nav-card">
+                <span class="num">МК #9</span>
+                <h3>Волшебство психодрамы</h3>
+                <span class="speakers">Акылай & Наталья</span>
+            </a>
+            <a href="#mk10" class="nav-card">
+                <span class="num">МК #10</span>
+                <h3>Мамочка и смысл жизни</h3>
+                <span class="speakers">Надежда & Жазгуль</span>
+            </a>
+        </div>
+
+        <h2 class="section-title">Подробное описание <span>и ведущие</span></h2>
+
+        <div id="mk1" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">1. Внутренняя опора: Целостность важнее совершенства (кырг.)</div>
+                <div class="workshop-speakers">Айзада & Жазгуль</div>
+            </div>
+            <div class="workshop-desc">Идеалдуу болууга умтулуудан чарчадыңызбы? Бул мастер-класста психодрамалык
+                сценарийлер аркылуу өзүңүздүн ички күчүңүздү таап, өзүңүздү кандай болсоңуз ошондой кабыл алууну
+                үйрөнөсүз.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk2" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">2. Страдаю, но остаюсь</div>
+                <div class="workshop-speakers">Галина & Айканыш</div>
+            </div>
+            <div class="workshop-desc">Почему мы годами держимся за отношения, работу или роли, которые приносят боль?
+                Исследуем невидимые выгоды и сделаем шаг к свободе выбора.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk3" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">3. Без обид</div>
+                <div class="workshop-speakers">Ильдар & Жаныл</div>
+            </div>
+            <div class="workshop-desc">Обида — это тяжелый груз. Учимся безопасно проживать застрявшие эмоции и
+                освобождать место для легкости и радости.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk4" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">4. Где мои деньги ???</div>
+                <div class="workshop-speakers">Зульфия & Айсулуу</div>
+            </div>
+            <div class="workshop-desc">Упираетесь в финансовый потолок? Найдем ваши подсознательные блоки и убеждения,
+                которые мешают денежному потоку.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk5" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">5. Есть ТЕЛО - Есть дело!</div>
+                <div class="workshop-speakers">Володя & Болот</div>
+            </div>
+            <div class="workshop-desc">Тело никогда не врет. Практическая работа с телесными импульсами поможет вернуть
+                тонус и энергию для реализации проектов.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk6" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">6. Линия жизни</div>
+                <div class="workshop-speakers">Наргиз & Альбина</div>
+            </div>
+            <div class="workshop-desc">Взгляд на свой путь со стороны. Проложим пространственную «линию времени» и
+                сфокусируемся на создании желаемого будущего.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk7" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">7. Женщина, которой я запрещаю себе быть</div>
+                <div class="workshop-speakers">Виктория</div>
+            </div>
+            <div class="workshop-desc">Сексуальность, дерзость, проявляемость — что именно вы прячете? Безопасное
+                пространство для встречи со своей «Тенью».</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk8" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">8. Телесный пульт: импульс, звук и спонтанный перформанс</div>
+                <div class="workshop-speakers">Асель & Любовь</div>
+            </div>
+            <div class="workshop-desc">Синтез звучания, движения и психодрамы. Научитесь управлять состоянием через тело
+                и голос.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk9" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">9. Волшебство психодрамы: исполнение желаний</div>
+                <div class="workshop-speakers">Акылай & Наталья</div>
+            </div>
+            <div class="workshop-desc">Проживите свое желание на сцене психодрамы и поймете, как воплотить его в
+                реальной жизни.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div id="mk10" class="workshop-card">
+            <div class="workshop-header">
+                <div class="workshop-title">10. Мамочка и смысл жизни</div>
+                <div class="workshop-speakers">Надежда & Жазгуль</div>
+            </div>
+            <div class="workshop-desc">Отношения с матерью — фундамент восприятия мира. Исследуем глубокие связи и
+                обретем свою индивидуальность.</div>
+            <div class="photos-box">
+                <div class="photo-placeholder">Фото 1</div>
+                <div class="photo-placeholder">Фото 2</div>
+            </div>
+        </div>
+
+        <div class="info-banner">
+            <div class="info-item">
+                <div class="label">📅 Дата и время</div>
+                <div class="val">23 Августа<br>10:00 - 18:00</div>
+            </div>
+            <div class="info-item">
+                <div class="label">📍 Место проведения</div>
+                <div class="val">г. Бишкек<br>[Укажите Адрес]</div>
+            </div>
+            <div class="info-item">
+                <div class="label">🎟️ Стоимость</div>
+                <div class="val" style="color: #fde047;">3000 сом</div>
+            </div>
+        </div>
+
+        <div class="reg-box">
+            <h2>Как записаться?</h2>
+            <p>Отсканируйте QR-код и отправьте ФИО и чек на номер:</p>
+            <div class="qr-code">QR CODE</div>
+            <div class="phone">+996 551 514 273</div>
+        </div>
+
+        <div class="footer">
+            ✨ С радостью ждем вас на фестивале! ✨
+        </div>
+    </div>
+
+</body>
+
+</html>
