@@ -188,7 +188,7 @@
             font-size: 1rem;
         }
 
-        /* Speakers Grid Layout with Bigger Photos & Info */
+        /* Speakers Grid Layout */
         .speakers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -263,7 +263,7 @@
             padding: 30px;
             margin: 50px 0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             text-align: center;
         }
@@ -280,6 +280,18 @@
             font-weight: 700;
             color: #fff;
             margin-top: 5px;
+        }
+
+        .price-early {
+            color: #fde047;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .price-late {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-top: 3px;
         }
 
         /* Registration */
@@ -645,6 +657,7 @@
             </div>
         </div>
 
+        <!-- Info Banner -->
         <div class="info-banner">
             <div class="info-item">
                 <div class="label">📅 Дата и время</div>
@@ -655,8 +668,12 @@
                 <div class="val">г. Бишкек<br>[Укажите Адрес]</div>
             </div>
             <div class="info-item">
-                <div class="label">🎟️ Стоимость</div>
-                <div class="val" style="color: #fde047;">3000 сом</div>
+                <div class="label">🎟️ Стоимость участия</div>
+                <div class="val">
+                    <div class="price-early">3000 сом <span
+                            style="font-size: 0.8rem; font-weight: 400; color: #fff;">(до 1 августа)</span></div>
+                    <div class="price-late">после 1 августа — 3500 сом</div>
+                </div>
             </div>
         </div>
 
