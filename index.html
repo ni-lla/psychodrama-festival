@@ -37,14 +37,70 @@
             padding: 0 20px;
         }
 
-        /* Hero Banner */
+        /* Hero Banner & Fireworks Animation */
         .hero {
             text-align: center;
-            padding: 60px 20px;
+            padding: 70px 20px;
             background: radial-gradient(circle at center, #311042 0%, #0f172a 100%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+        }
+
+        /* Fireworks Effect Overlay */
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            box-shadow:
+                0 0 #ff0 0,
+                0 0 #f0f 0,
+                0 0 #0ff 0,
+                0 0 #6f0 0,
+                0 0 #f60 0,
+                0 0 #0bf 0;
+            animation: fireworks 2.5s infinite ease-out;
+        }
+
+        .hero::before {
+            top: 30%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .hero::after {
+            top: 25%;
+            right: 20%;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes fireworks {
+            0% {
+                box-shadow:
+                    0 0 #ff0 0, 0 0 #f0f 0, 0 0 #0ff 0,
+                    0 0 #6f0 0, 0 0 #f60 0, 0 0 #0bf 0;
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                box-shadow:
+                    -80px -80px #ff0 3px, 80px -70px #f0f 3px,
+                    -60px 80px #0ff 3px, 70px 70px #6f0 3px,
+                    -100px 0px #f60 3px, 100px 10px #0bf 3px;
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
 
         .badge {
@@ -58,6 +114,7 @@
             border-radius: 20px;
             margin-bottom: 15px;
             letter-spacing: 1px;
+            box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);
         }
 
         .hero h1 {
@@ -172,21 +229,37 @@
             font-size: 0.95rem;
         }
 
+        /* Photos Styling */
         .photos-box {
             display: flex;
             gap: 15px;
+            align-items: center;
+        }
+
+        .speaker-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-purple);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .speaker-img:hover {
+            transform: scale(1.05);
         }
 
         .photo-placeholder {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             background: rgba(15, 23, 42, 0.8);
             border: 2px dashed rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             text-align: center;
         }
@@ -266,8 +339,8 @@
 <body>
 
     <div class="hero">
-        <div class="container">
-            <span class="badge">10 лет Кыргызской Ассоциации Психодрамы</span>
+        <div class="container hero-content">
+            <span class="badge">🎆 10 лет Кыргызской Ассоциации Психодрамы 🎆</span>
             <h1>IV Фестиваль Психодрамы</h1>
             <p>Приглашаем вас погрузиться в мир исследования себя, спонтанности и новых возможностей в Бишкеке!</p>
         </div>
@@ -331,6 +404,7 @@
 
         <h2 class="section-title">Подробное описание <span>и ведущие</span></h2>
 
+        <!-- МК 1 -->
         <div id="mk1" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">1. Внутренняя опора: Целостность важнее совершенства (кырг.)</div>
@@ -340,11 +414,12 @@
                 сценарийлер аркылуу өзүңүздүн ички күчүңүздү таап, өзүңүздү кандай болсоңуз ошондой кабыл алууну
                 үйрөнөсүз.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/aizada.jpg" alt="Айзада" class="speaker-img">
+                <img src="images/jazi.jpg" alt="Жазгуль" class="speaker-img">
             </div>
         </div>
 
+        <!-- МК 2 -->
         <div id="mk2" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">2. Страдаю, но остаюсь</div>
@@ -353,11 +428,12 @@
             <div class="workshop-desc">Почему мы годами держимся за отношения, работу или роли, которые приносят боль?
                 Исследуем невидимые выгоды и сделаем шаг к свободе выбора.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/galina.jpg" alt="Галина" class="speaker-img">
+                <img src="images/aika.jpg" alt="Айканыш" class="speaker-img">
             </div>
         </div>
 
+        <!-- МК 3 -->
         <div id="mk3" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">3. Без обид</div>
@@ -366,11 +442,12 @@
             <div class="workshop-desc">Обида — это тяжелый груз. Учимся безопасно проживать застрявшие эмоции и
                 освобождать место для легкости и радости.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/janyl.jpg" alt="Жаныл" class="speaker-img">
+                <div class="photo-placeholder">Фото Ильдара</div>
             </div>
         </div>
 
+        <!-- МК 4 -->
         <div id="mk4" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">4. Где мои деньги ???</div>
@@ -379,11 +456,12 @@
             <div class="workshop-desc">Упираетесь в финансовый потолок? Найдем ваши подсознательные блоки и убеждения,
                 которые мешают денежному потоку.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/zulfiya.jpg" alt="Зульфия" class="speaker-img">
+                <img src="images/aisuluu.jpg" alt="Айсулуу" class="speaker-img">
             </div>
         </div>
 
+        <!-- МК 5 -->
         <div id="mk5" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">5. Есть ТЕЛО - Есть дело!</div>
@@ -392,11 +470,12 @@
             <div class="workshop-desc">Тело никогда не врет. Практическая работа с телесными импульсами поможет вернуть
                 тонус и энергию для реализации проектов.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/vladimir.jpg" alt="Володя" class="speaker-img">
+                <img src="images/bolot.jpg" alt="Болот" class="speaker-img">
             </div>
         </div>
 
+        <!-- МК 6 -->
         <div id="mk6" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">6. Линия жизни</div>
@@ -405,11 +484,12 @@
             <div class="workshop-desc">Взгляд на свой путь со стороны. Проложим пространственную «линию времени» и
                 сфокусируемся на создании желаемого будущего.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/nargiz.jpg" alt="Наргиз" class="speaker-img">
+                <img src="images/albina.jpg" alt="Альбина" class="speaker-img">
             </div>
         </div>
 
+        <!-- МК 7 -->
         <div id="mk7" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">7. Женщина, которой я запрещаю себе быть</div>
@@ -418,11 +498,11 @@
             <div class="workshop-desc">Сексуальность, дерзость, проявляемость — что именно вы прячете? Безопасное
                 пространство для встречи со своей «Тенью».</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/vika.jpg" alt="Виктория" class="speaker-img">
             </div>
         </div>
 
+        <!-- МК 8 -->
         <div id="mk8" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">8. Телесный пульт: импульс, звук и спонтанный перформанс</div>
@@ -431,11 +511,12 @@
             <div class="workshop-desc">Синтез звучания, движения и психодрамы. Научитесь управлять состоянием через тело
                 и голос.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/asel.jpg" alt="Асель" class="speaker-img">
+                <div class="photo-placeholder">Фото Любови</div>
             </div>
         </div>
 
+        <!-- МК 9 -->
         <div id="mk9" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">9. Волшебство психодрамы: исполнение желаний</div>
@@ -444,11 +525,12 @@
             <div class="workshop-desc">Проживите свое желание на сцене психодрамы и поймете, как воплотить его в
                 реальной жизни.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <img src="images/akylai.jpg" alt="Акылай" class="speaker-img">
+                <div class="photo-placeholder">Фото Натальи</div>
             </div>
         </div>
 
+        <!-- МК 10 -->
         <div id="mk10" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">10. Мамочка и смысл жизни</div>
@@ -457,8 +539,8 @@
             <div class="workshop-desc">Отношения с матерью — фундамент восприятия мира. Исследуем глубокие связи и
                 обретем свою индивидуальность.</div>
             <div class="photos-box">
-                <div class="photo-placeholder">Фото 1</div>
-                <div class="photo-placeholder">Фото 2</div>
+                <div class="photo-placeholder">Фото Надежды</div>
+                <img src="images/jazi.jpg" alt="Жазгуль" class="speaker-img">
             </div>
         </div>
 
