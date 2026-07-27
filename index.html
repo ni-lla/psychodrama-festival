@@ -47,7 +47,6 @@
             overflow: hidden;
         }
 
-        /* Canvas for Fireworks */
         #fireworks-canvas {
             position: absolute;
             top: 0;
@@ -152,7 +151,7 @@
             border-left: 4px solid var(--accent-purple);
             border-radius: 12px;
             padding: 25px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             border-right: 1px solid rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -169,12 +168,12 @@
         }
 
         .workshop-title {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--accent-blue);
             font-weight: 700;
         }
 
-        .workshop-speakers {
+        .workshop-speakers-tag {
             background: rgba(236, 72, 153, 0.15);
             color: var(--accent-pink);
             padding: 4px 12px;
@@ -185,24 +184,38 @@
 
         .workshop-desc {
             color: #cbd5e1;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
+            margin-bottom: 25px;
+            font-size: 1rem;
         }
 
-        /* Photos Styling */
-        .photos-box {
+        /* Speakers Grid Layout with Bigger Photos & Info */
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .speaker-item {
             display: flex;
-            gap: 15px;
             align-items: center;
+            gap: 15px;
+            background: rgba(15, 23, 42, 0.5);
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .speaker-img {
-            width: 80px;
-            height: 80px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--accent-purple);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--accent-purple);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            flex-shrink: 0;
             transition: transform 0.2s ease;
         }
 
@@ -211,17 +224,36 @@
         }
 
         .photo-placeholder {
-            width: 80px;
-            height: 80px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.9);
             border: 2px dashed rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-muted);
             text-align: center;
+            flex-shrink: 0;
+        }
+
+        .speaker-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .speaker-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .speaker-role {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.3;
         }
 
         /* Event Info Banner */
@@ -354,7 +386,7 @@
             <a href="#mk9" class="nav-card">
                 <span class="num">МК #9</span>
                 <h3>Волшебство психодрамы</h3>
-                <span class="speakers">Акылай & Наталья</span>
+                <span class="speakers">Акылай</span>
             </a>
             <a href="#mk10" class="nav-card">
                 <span class="num">МК #10</span>
@@ -369,14 +401,26 @@
         <div id="mk1" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">1. Внутренняя опора: Целостность важнее совершенства (кырг.)</div>
-                <div class="workshop-speakers">Айзада & Жазгуль</div>
+                <div class="workshop-speakers-tag">Айзада & Жазгуль</div>
             </div>
             <div class="workshop-desc">Идеалдуу болууга умтулуудан чарчадыңызбы? Бул мастер-класста психодрамалык
                 сценарийлер аркылуу өзүңүздүн ички күчүңүздү таап, өзүңүздү кандай болсоңуз ошондой кабыл алууну
                 үйрөнөсүз.</div>
-            <div class="photos-box">
-                <img src="images/aizada.jpg" alt="Айзада" class="speaker-img">
-                <img src="images/jazi.jpg" alt="Жазгуль" class="speaker-img">
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/aizada.jpg" alt="Айзада" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Айзада</div>
+                        <div class="speaker-role">Практический психолог, психодрама-терапевт</div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/jazi.jpg" alt="Жазгуль" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Жазгуль</div>
+                        <div class="speaker-role">Психолог, специалист по психодраме</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -384,13 +428,25 @@
         <div id="mk2" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">2. Страдаю, но остаюсь</div>
-                <div class="workshop-speakers">Галина & Айканыш</div>
+                <div class="workshop-speakers-tag">Галина & Айканыш</div>
             </div>
             <div class="workshop-desc">Почему мы годами держимся за отношения, работу или роли, которые приносят боль?
                 Исследуем невидимые выгоды и сделаем шаг к свободе выбора.</div>
-            <div class="photos-box">
-                <img src="images/galina.jpg" alt="Галина" class="speaker-img">
-                <img src="images/aika.jpg" alt="Айканыш" class="speaker-img">
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/galina.jpg" alt="Галина" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Галина</div>
+                        <div class="speaker-role">Практический психолог, терапевт</div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/aika.jpg" alt="Айканыш" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Айканыш</div>
+                        <div class="speaker-role">Психолог, психодрама-практик</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -398,13 +454,25 @@
         <div id="mk3" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">3. Без обид</div>
-                <div class="workshop-speakers">Ильдар & Жаныл</div>
+                <div class="workshop-speakers-tag">Ильдар & Жаныл</div>
             </div>
             <div class="workshop-desc">Обида — это тяжелый груз. Учимся безопасно проживать застрявшие эмоции и
                 освобождать место для легкости и радости.</div>
-            <div class="photos-box">
-                <img src="images/janyl.jpg" alt="Жаныл" class="speaker-img">
-                <div class="photo-placeholder">Фото Ильдара</div>
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/ildar.jpg" alt="Ильдар" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Ильдар</div>
+                        <div class="speaker-role">Практический психолог</div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/janyl.jpg" alt="Жаныл" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Жаныл</div>
+                        <div class="speaker-role">Психодрама-терапевт</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -412,13 +480,25 @@
         <div id="mk4" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">4. Где мои деньги ???</div>
-                <div class="workshop-speakers">Зульфия & Айсулуу</div>
+                <div class="workshop-speakers-tag">Зульфия & Айсулуу</div>
             </div>
             <div class="workshop-desc">Упираетесь в финансовый потолок? Найдем ваши подсознательные блоки и убеждения,
                 которые мешают денежному потоку.</div>
-            <div class="photos-box">
-                <img src="images/zulfiya.jpg" alt="Зульфия" class="speaker-img">
-                <img src="images/aisuluu.jpg" alt="Айсулуу" class="speaker-img">
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/zulfiya.jpg" alt="Зульфия" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Зульфия</div>
+                        <div class="speaker-role">Психолог, финансовый консультант</div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/aisuluu.jpg" alt="Айсулуу" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Айсулуу</div>
+                        <div class="speaker-role">Психодрама-терапевт</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -426,13 +506,25 @@
         <div id="mk5" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">5. Есть ТЕЛО - Есть дело!</div>
-                <div class="workshop-speakers">Володя & Болот</div>
+                <div class="workshop-speakers-tag">Володя & Болот</div>
             </div>
             <div class="workshop-desc">Тело никогда не врет. Практическая работа с телесными импульсами поможет вернуть
                 тонус и энергию для реализации проектов.</div>
-            <div class="photos-box">
-                <img src="images/vladimir.jpg" alt="Володя" class="speaker-img">
-                <img src="images/bolot.jpg" alt="Болот" class="speaker-img">
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/vladimir.jpg" alt="Володя" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Владимир</div>
+                        <div class="speaker-role">Телесно-ориентированный терапевт</div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/bolot.jpg" alt="Болот" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Болот</div>
+                        <div class="speaker-role">Психолог, специалист по психодраме</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -440,13 +532,25 @@
         <div id="mk6" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">6. Линия жизни</div>
-                <div class="workshop-speakers">Наргиз & Альбина</div>
+                <div class="workshop-speakers-tag">Наргиз & Альбина</div>
             </div>
             <div class="workshop-desc">Взгляд на свой путь со стороны. Проложим пространственную «линию времени» и
                 сфокусируемся на создании желаемого будущего.</div>
-            <div class="photos-box">
-                <img src="images/nargiz.jpg" alt="Наргиз" class="speaker-img">
-                <img src="images/albina.jpg" alt="Альбина" class="speaker-img">
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/nargiz.jpg" alt="Наргиз" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Наргиз</div>
+                        <div class="speaker-role">Психолог, психодрама-терапевт</div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/albina.jpg" alt="Альбина" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Альбина</div>
+                        <div class="speaker-role">Практический психолог</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -454,12 +558,18 @@
         <div id="mk7" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">7. Женщина, которой я запрещаю себе быть</div>
-                <div class="workshop-speakers">Виктория</div>
+                <div class="workshop-speakers-tag">Виктория</div>
             </div>
             <div class="workshop-desc">Сексуальность, дерзость, проявляемость — что именно вы прячете? Безопасное
                 пространство для встречи со своей «Тенью».</div>
-            <div class="photos-box">
-                <img src="images/vika.jpg" alt="Виктория" class="speaker-img">
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/vika.jpg" alt="Виктория" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Виктория</div>
+                        <div class="speaker-role">Психолог, психодрама-терапевт</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -467,13 +577,26 @@
         <div id="mk8" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">8. Телесный пульт: импульс, звук и спонтанный перформанс</div>
-                <div class="workshop-speakers">Асель & Любовь</div>
+                <div class="workshop-speakers-tag">Асель & Любовь</div>
             </div>
             <div class="workshop-desc">Синтез звучания, движения и психодрамы. Научитесь управлять состоянием через тело
                 и голос.</div>
-            <div class="photos-box">
-                <img src="images/asel.jpg" alt="Асель" class="speaker-img">
-                <div class="photo-placeholder">Фото Любови</div>
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/asel.jpg" alt="Асель Баимбетова" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Асель Баимбетова</div>
+                        <div class="speaker-role">Практический психолог, психодрама-терапевт, тренер гештальт-групп
+                        </div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/lubov.jpg" alt="Любовь" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Любовь</div>
+                        <div class="speaker-role">Психолог, арт-терапевт</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -481,13 +604,18 @@
         <div id="mk9" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">9. Волшебство психодрамы: исполнение желаний</div>
-                <div class="workshop-speakers">Акылай & Наталья</div>
+                <div class="workshop-speakers-tag">Акылай</div>
             </div>
             <div class="workshop-desc">Проживите свое желание на сцене психодрамы и поймете, как воплотить его в
                 реальной жизни.</div>
-            <div class="photos-box">
-                <img src="images/akylai.jpg" alt="Акылай" class="speaker-img">
-                <div class="photo-placeholder">Фото Натальи</div>
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <img src="images/akylai.jpg" alt="Акылай" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Акылай</div>
+                        <div class="speaker-role">Психолог, психодрама-терапевт</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -495,13 +623,25 @@
         <div id="mk10" class="workshop-card">
             <div class="workshop-header">
                 <div class="workshop-title">10. Мамочка и смысл жизни</div>
-                <div class="workshop-speakers">Надежда & Жазгуль</div>
+                <div class="workshop-speakers-tag">Надежда & Жазгуль</div>
             </div>
             <div class="workshop-desc">Отношения с матерью — фундамент восприятия мира. Исследуем глубокие связи и
                 обретем свою индивидуальность.</div>
-            <div class="photos-box">
-                <div class="photo-placeholder">Фото Надежды</div>
-                <img src="images/jazi.jpg" alt="Жазгуль" class="speaker-img">
+            <div class="speakers-grid">
+                <div class="speaker-item">
+                    <div class="photo-placeholder">Фото Надежды</div>
+                    <div class="speaker-info">
+                        <div class="speaker-name">Надежда</div>
+                        <div class="speaker-role">Практический психолог</div>
+                    </div>
+                </div>
+                <div class="speaker-item">
+                    <img src="images/jazi.jpg" alt="Жазгуль" class="speaker-img">
+                    <div class="speaker-info">
+                        <div class="speaker-name">Жазгуль</div>
+                        <div class="speaker-role">Психолог, психодрама-терапевт</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -571,7 +711,7 @@
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-                this.vy += 0.05; // gravity
+                this.vy += 0.05;
                 this.alpha -= this.decay;
             }
         }
