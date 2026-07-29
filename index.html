@@ -295,17 +295,17 @@
             margin-bottom: 15px;
         }
 
-        .qr-code {
-            width: 140px;
-            height: 140px;
-            background: #fff;
+        .qr-code-img {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
             margin: 20px auto;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #000;
-            font-weight: bold;
+            display: block;
+            border: 3px solid var(--accent-purple);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            background: #fff;
+            padding: 5px;
         }
 
         .phone {
@@ -342,7 +342,7 @@
         <div class="grid-nav">
             <a href="#mk1" class="nav-card">
                 <span class="num">МК #1</span>
-                <h3>Внутренняя опора</h3>
+                <h3>Целостность важнее совершенства</h3>
                 <span class="speakers">Айзада & Жазгуль</span>
             </a>
             <a href="#mk2" class="nav-card">
@@ -397,13 +397,12 @@
         <!-- МК 1 -->
         <div id="mk1" class="workshop-card">
             <div class="workshop-header">
-                <div class="workshop-title">1. Внутренняя опора: Целостность важнее совершенства (кырг.)</div>
+                <div class="workshop-title">1. Целостность важнее совершенства (на кыргызском языке)</div>
                 <div class="workshop-speakers-tag">Айзада & Жазгуль</div>
             </div>
-            <div class="workshop-desc">Бирөөлөрдүн күтүүсүнө жооп берүүдөн жана идеалдуу болууга умтулуудан
-                чарчадыңызбы? Бул мастер-класста психодрамалык практикалар аркылуу өзүңүздүн ички ресурстарыңызды таап,
-                өз кемчиликтериңиз менен чогуу өзүңүздү кабыл алууну үйрөнөсүз. Өзүңө болгон ишенимди бекемдеп, ички
-                маанайыңа таянуу менен жашоодо бекем опора табууга чакырабыз.</div>
+            <div class="workshop-desc">Внутренняя опора рождается не из стремления быть идеальным, а из принятия себя
+                настоящего. Через техники психодрамы участники смогут укрепить контакт с собой, своими чувствами и
+                ресурсами, обрести больше внутренней устойчивости, свободы и целостности.</div>
             <div class="speakers-grid">
                 <div class="speaker-item">
                     <img src="images/aizada.jpg?v=2" alt="Айзада Абдылдабекова" class="speaker-img">
@@ -685,7 +684,7 @@
             </div>
             <div class="info-item">
                 <div class="label">📍 Место проведения</div>
-                <div class="val">г. Бишкек<br>[Укажите Адрес]</div>
+                <div class="val">Nomad college,<br>Улица 7 апреля 4/3</div>
             </div>
             <div class="info-item">
                 <div class="label">🎟️ Стоимость участия</div>
@@ -700,7 +699,7 @@
         <div class="reg-box">
             <h2>Как записаться?</h2>
             <p>Отсканируйте QR-код и отправьте ФИО и чек на номер:</p>
-            <div class="qr-code">QR CODE</div>
+            <img src="images/qr.jpg?v=1" alt="QR Код для оплаты" class="qr-code-img">
             <div class="phone">+996 551 514 273</div>
         </div>
 
