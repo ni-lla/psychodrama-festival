@@ -65,13 +65,13 @@
             align-items: center;
         }
 
-        /* Стиль для круглого блока под логотип */
+        /* Оформление оригинального логотипа */
         .logo-wrapper {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             background: #ffffff;
             border-radius: 50%;
-            padding: 12px;
+            padding: 10px;
             margin-bottom: 20px;
             box-shadow: 0 0 25px rgba(168, 85, 247, 0.4), 0 0 10px rgba(255, 255, 255, 0.2);
             border: 2px solid rgba(255, 255, 255, 0.9);
@@ -85,10 +85,11 @@
             transform: scale(1.05);
         }
 
-        .logo-svg {
+        .logo-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            border-radius: 50%;
         }
 
         .badge {
@@ -390,36 +391,10 @@
     <div class="hero">
         <canvas id="fireworks-canvas"></canvas>
         <div class="container hero-content">
-            <!-- Встроенный SVG Логотип Ассоциации -->
+            <!-- Твой оригинальный логотип -->
             <div class="logo-wrapper">
-                <svg viewBox="0 0 500 500" class="logo-svg">
-                    <!-- Арка -->
-                    <path d="M 50 420 A 200 200 0 0 1 450 420 L 390 420 A 140 140 0 0 0 110 420 Z" fill="#1e293b" />
-                    <path d="M 70 400 A 180 180 0 0 1 430 400 L 410 400 A 160 160 0 0 0 90 400 Z" fill="#1e293b" />
-                    <!-- Солнце -->
-                    <circle cx="250" cy="120" r="28" fill="#f59e0b" />
-                    <path
-                        d="M 250 80 L 250 88 M 250 152 L 250 160 M 210 120 L 218 120 M 282 120 L 290 120 M 222 92 L 228 98 M 272 142 L 278 148 M 222 148 L 228 142 M 272 98 L 278 92"
-                        stroke="#f59e0b" stroke-width="5" stroke-linecap="round" />
-                    <!-- Силуэты 3 человек -->
-                    <!-- Головы -->
-                    <circle cx="170" cy="210" r="22" fill="#1e293b" />
-                    <circle cx="250" cy="245" r="22" fill="#1e293b" />
-                    <circle cx="330" cy="210" r="22" fill="#1e293b" />
-                    <!-- Тела и руки -->
-                    <path
-                        d="M 170 235 C 130 200 100 220 80 260 C 120 280 140 330 110 420 L 155 420 C 180 340 185 280 170 235 Z"
-                        fill="#1e293b" />
-                    <path
-                        d="M 330 235 C 370 200 400 220 420 260 C 380 280 360 330 390 420 L 345 420 C 320 340 315 280 330 235 Z"
-                        fill="#1e293b" />
-                    <path
-                        d="M 250 270 C 210 240 180 235 170 235 C 185 280 200 350 190 420 L 240 420 C 255 350 250 310 250 270 Z"
-                        fill="#1e293b" />
-                    <path
-                        d="M 250 270 C 290 240 320 235 330 235 C 315 280 300 350 310 420 L 260 420 C 245 350 250 310 250 270 Z"
-                        fill="#1e293b" />
-                </svg>
+                <img src="images/logo.png" alt="Логотип Кыргызской Ассоциации Психодрамы" class="logo-img"
+                    onerror="this.src='https://i.ibb.co/6n9fD42/logo-drama.png'">
             </div>
 
             <span class="badge">10 лет Кыргызской Ассоциации Психодрамы</span>
