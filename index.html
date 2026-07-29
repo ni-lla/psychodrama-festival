@@ -40,7 +40,7 @@
         /* Hero Banner */
         .hero {
             text-align: center;
-            padding: 70px 20px;
+            padding: 60px 20px 70px;
             background: radial-gradient(circle at center, #311042 0%, #0f172a 100%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
@@ -60,6 +60,36 @@
         .hero-content {
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Стиль для логотипа */
+        .logo-wrapper {
+            width: 110px;
+            height: 110px;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.35), 0 0 10px rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-wrapper:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
         }
 
         .badge {
@@ -361,6 +391,11 @@
     <div class="hero">
         <canvas id="fireworks-canvas"></canvas>
         <div class="container hero-content">
+            <!-- Блок с логотипом -->
+            <div class="logo-wrapper">
+                <img src="images/logo.png" alt="Логотип Кыргызской Ассоциации Психодрамы" class="logo-img">
+            </div>
+
             <span class="badge">10 лет Кыргызской Ассоциации Психодрамы</span>
             <h1>IV Фестиваль Психодрамы</h1>
             <p>Приглашаем вас погрузиться в мир исследования себя, спонтанности и новых возможностей в Бишкеке!</p>
@@ -769,7 +804,7 @@
                 const angle = Math.random() * Math.PI * 2;
                 const speed = Math.random() * 4 + 1;
                 this.vx = Math.cos(angle) * speed;
-                this.vy = Math.sin(angle) * speed;
+                this.vy = Sin = Math.sin(angle) * speed;
                 this.alpha = 1;
                 this.decay = Math.random() * 0.02 + 0.015;
             }
