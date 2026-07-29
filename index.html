@@ -28,7 +28,7 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 60px;
+            padding-bottom: 30px;
         }
 
         .container {
@@ -308,10 +308,20 @@
             padding: 5px;
         }
 
+        .phone-link {
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .phone-link:hover {
+            transform: scale(1.05);
+        }
+
         .phone {
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--accent-blue);
+            color: #22c55e;
             margin-top: 10px;
         }
 
@@ -321,6 +331,27 @@
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--accent-pink);
+        }
+
+        /* Custom Footer Line & Credits */
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            margin: 40px 0 20px;
+        }
+
+        .developer-credit {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .developer-credit span {
+            color: var(--accent-purple);
+            font-weight: 700;
         }
     </style>
 </head>
@@ -698,13 +729,20 @@
 
         <div class="reg-box">
             <h2>Как записаться?</h2>
-            <p>Отсканируйте QR-код и отправьте ФИО и чек на номер:</p>
+            <p>Отсканируйте QR-код или нажмите на номер, чтобы написать нам в WhatsApp:</p>
             <img src="images/qr.jpg?v=1" alt="QR Код для оплаты" class="qr-code-img">
-            <div class="phone">+996 551 514 273</div>
+            <a href="https://wa.me/996551514273" target="_blank" class="phone-link">
+                <div class="phone">📱 +996 551 514 273</div>
+            </a>
         </div>
 
         <div class="footer">
             ✨ С радостью ждем вас на фестивале! ✨
+        </div>
+
+        <hr class="footer-divider">
+        <div class="developer-credit">
+            made by <span>WRN</span>
         </div>
     </div>
 
