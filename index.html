@@ -65,7 +65,6 @@
             align-items: center;
         }
 
-        /* Оформление оригинального логотипа */
         .logo-wrapper {
             width: 130px;
             height: 130px;
@@ -138,7 +137,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 15px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .nav-card {
@@ -173,6 +172,78 @@
         .nav-card .speakers {
             font-size: 0.85rem;
             color: var(--text-muted);
+        }
+
+        /* Timing Block Styles */
+        .timeline-wrapper {
+            background: var(--card-bg);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 16px;
+            padding: 30px 25px;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 12px 15px;
+            border-radius: 10px;
+            background: rgba(15, 23, 42, 0.4);
+            border-left: 3px solid var(--accent-purple);
+            align-items: flex-start;
+        }
+
+        .timeline-item.highlight {
+            border-left-color: var(--accent-pink);
+            background: rgba(236, 72, 153, 0.08);
+        }
+
+        .timeline-time {
+            font-weight: 800;
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+            white-space: nowrap;
+            min-width: 105px;
+        }
+
+        .timeline-content {
+            color: #f1f5f9;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+
+        .timeline-sublist {
+            list-style: none;
+            margin-top: 8px;
+            padding-left: 0;
+        }
+
+        .timeline-sublist li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-sublist li::before {
+            content: "•";
+            color: var(--accent-pink);
+            position: absolute;
+            left: 5px;
+            font-weight: bold;
         }
 
         /* Workshops Detail */
@@ -363,7 +434,6 @@
             color: var(--accent-pink);
         }
 
-        /* Custom Footer Line & Credits */
         .footer-divider {
             border: none;
             height: 1px;
@@ -383,6 +453,17 @@
             color: var(--accent-purple);
             font-weight: 700;
         }
+
+        @media (max-width: 600px) {
+            .timeline-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .timeline-time {
+                min-width: auto;
+            }
+        }
     </style>
 </head>
 
@@ -391,9 +472,8 @@
     <div class="hero">
         <canvas id="fireworks-canvas"></canvas>
         <div class="container hero-content">
-            <!-- Чистая ссылка на твой логотип, без заглушек -->
             <div class="logo-wrapper">
-                <img src="images/logo.png" alt="Логотип Кыргызской Ассоциации Психодрамы" class="logo-img">
+                <img src="logo.jpg" alt="Логотип Кыргызской Ассоциации Психодрамы" class="logo-img">
             </div>
 
             <span class="badge">10 лет Кыргызской Ассоциации Психодрамы</span>
@@ -458,6 +538,88 @@
             </a>
         </div>
 
+        <!-- Новый Блок: Тайминг фестиваля -->
+        <h2 class="section-title">Тайминг <span>фестиваля</span> (10:00–18:00)</h2>
+        <div class="timeline-wrapper">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">10:00–10:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Регистрация участников</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">10:30–11:20</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Открытие фестиваля</div>
+                        <ul class="timeline-sublist">
+                            <li>Приветственное слово директора</li>
+                            <li>Разогрев участников</li>
+                            <li>Представление тренеров и мастер-классов</li>
+                            <li>Организационные моменты</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">11:20–11:30</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Распределение участников по мастер-классам</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">11:30–13:15</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">I линейка мастер-классов (5 площадок одновременно)</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">13:15–14:15</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">☕ Обед</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">14:15–16:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">II линейка мастер-классов (5 площадок одновременно)</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">16:00–16:20</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Coffee break</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item highlight">
+                    <div class="timeline-time">16:20–17:20</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">🎭 Плейбэк-театр</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">17:20–18:00</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Закрытие фестиваля</div>
+                        <ul class="timeline-sublist">
+                            <li>Подведение итогов</li>
+                            <li>Обратная связь</li>
+                            <li>Благодарности организаторам, тренерам и волонтерам</li>
+                            <li>Вручение сертификатов</li>
+                            <li>Общее фото</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h2 class="section-title">Подробное описание <span>и ведущие</span></h2>
 
         <!-- МК 1 -->
@@ -504,7 +666,7 @@
                     <img src="images/galina.jpg?v=2" alt="Галина Фильева" class="speaker-img">
                     <div class="speaker-info">
                         <div class="speaker-name">Галина Фильева</div>
-                        <div class="speaker-role">Гештальт-терапевт, психодраматерапевт, ведущая обучающих групп для
+                        <div class="speaker-role">Гештальт-терапевт, психодрама-практик, ведущая обучающих групп для
                             психологов и терапевтических групп.</div>
                     </div>
                 </div>
@@ -564,17 +726,17 @@
                     <div class="speaker-info">
                         <div class="speaker-name">Зульфия Искандер</div>
                         <div class="speaker-role">Член Европейской и Кыргызской ассоциаций психодрамы, директор
-                            Кыргызской ассоциации психодрамы, психодраматист, психолог, ведущая терапевтических групп,
-                            инструктор йоги, артистка плейбек-театра «Оймо».</div>
+                            Кыргызской ассоциации психодрамы, психодрама-практик, психолог, ведущая терапевтических
+                            групп, инструктор йоги, артистка плейбек-театра «Оймо».</div>
                     </div>
                 </div>
                 <div class="speaker-item">
                     <img src="images/aisuluu.jpg?v=2" alt="Абылгазиева Айсулуу" class="speaker-img">
                     <div class="speaker-info">
                         <div class="speaker-name">Абылгазиева Айсулуу</div>
-                        <div class="speaker-role">Член Европейской и Кыргызской ассоциаций психодрамы, психодраматист,
-                            психолог, преподаватель психологии, автор трансформационных игр, ведущая психологических
-                            групп и тренингов.</div>
+                        <div class="speaker-role">Член Европейской и Кыргызской ассоциаций психодрамы,
+                            психодрама-практик, психолог, преподаватель психологии, автор трансформационных игр, ведущая
+                            психологических групп и тренингов.</div>
                     </div>
                 </div>
             </div>
@@ -679,7 +841,7 @@
                     <img src="images/asel.jpg?v=2" alt="Асель Баимбетова" class="speaker-img">
                     <div class="speaker-info">
                         <div class="speaker-name">Асель Баимбетова</div>
-                        <div class="speaker-role">Практический психолог, психодрама-терапевт, тренер гештальт-групп.
+                        <div class="speaker-role">Практический психолог, психодрама-практик, тренер гештальт-групп.
                         </div>
                     </div>
                 </div>
@@ -708,8 +870,8 @@
                     <img src="images/akylai.jpg?v=2" alt="Акылай Шайдуллаева" class="speaker-img">
                     <div class="speaker-info">
                         <div class="speaker-name">Акылай Шайдуллаева</div>
-                        <div class="speaker-role">Член Европейской и Кыргызской ассоциации психодрамы, психодраматист,
-                            ABA-терапист, практикующий психолог в подходе КПТ и нейрографики.</div>
+                        <div class="speaker-role">Член Европейской и Кыргызской ассоциации психодрамы,
+                            психодрама-практик, ABA-терапист, практикующий психолог в подходе КПТ и нейрографики.</div>
                     </div>
                 </div>
             </div>
@@ -730,7 +892,7 @@
                     <img src="images/nadya.jpg?v=2" alt="Надежда Табаренцева" class="speaker-img">
                     <div class="speaker-info">
                         <div class="speaker-name">Надежда Табаренцева</div>
-                        <div class="speaker-role">Клинический психолог, психодраматист, НЛП-мастер, арт-терапевт,
+                        <div class="speaker-role">Клинический психолог, психодрама-практик, НЛП-мастер, арт-терапевт,
                             EMDR-практик, ТА-практик, актер плейбэк-театра.</div>
                     </div>
                 </div>
